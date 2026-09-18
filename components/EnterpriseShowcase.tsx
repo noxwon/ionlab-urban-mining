@@ -215,41 +215,42 @@ export default function EnterpriseShowcase() {
       />
 
       {/* 0. ENTERPRISE STATUS BAR */}
-      <div className="bg-[#0B0F17] border-b border-slate-800/80 text-xs py-2 px-4 sticky top-0 z-50 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 font-mono text-[11px]">
-          <div className="flex items-center gap-3">
-            <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 font-bold">
-              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
-              IONLAB B2B INTELLIGENCE ENGINE v3.6
+      <div className="bg-[#070A0F]/95 border-b border-slate-800/80 text-xs py-2 px-3 sm:px-4 sticky top-0 z-50 backdrop-blur-md">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2 sm:gap-3 font-mono text-[10px] sm:text-[11px]">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 font-bold tracking-tight">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping shrink-0" />
+              <span className="sm:hidden">IONLAB v3.6</span>
+              <span className="hidden sm:inline">IONLAB B2B INTELLIGENCE ENGINE v3.6</span>
             </span>
             <span className="text-slate-400 hidden md:inline">KRX & LME Real-Time Feed Active</span>
           </div>
 
-          <div className="flex items-center gap-4 text-slate-300">
-            <span className="text-amber-400">Au: ₩195,310/g</span>
-            <span className="text-slate-400">Ag: ₩2,945/g</span>
-            <span className="text-sky-300">Pd: ₩58,050/g</span>
-            <span className="text-emerald-400 font-semibold hidden sm:inline">Yield Index: 98.4%</span>
+          <div className="flex items-center gap-2.5 sm:gap-4 text-slate-300">
+            <span className="text-amber-400 font-medium">Au: ₩195,310/g</span>
+            <span className="text-slate-400 font-medium">Ag: ₩2,945/g</span>
+            <span className="text-sky-300 font-medium hidden xs:inline">Pd: ₩58,050/g</span>
+            <span className="text-emerald-400 font-semibold hidden sm:inline">Yield: 98.4%</span>
           </div>
         </div>
       </div>
 
       {/* 1. HEADER & GNB */}
-      <header className="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between border-b border-slate-800/40">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 via-sky-600 to-slate-900 border border-cyan-400/40 flex items-center justify-center text-white shadow-lg shadow-cyan-500/20">
-            <Cpu className="w-6 h-6 stroke-[2.2]" />
+      <header className="max-w-7xl mx-auto px-4 sm:px-6 h-18 sm:h-20 flex items-center justify-between border-b border-slate-800/40">
+        <div className="flex items-center gap-2.5 sm:gap-3">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-cyan-500 via-sky-600 to-slate-900 border border-cyan-400/40 flex items-center justify-center text-white shadow-lg shadow-cyan-500/20 shrink-0">
+            <Cpu className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.2]" />
           </div>
           <div>
-            <div className="flex items-center gap-2">
-              <span className="text-xl font-black tracking-tight text-white font-mono">
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <span className="text-lg sm:text-xl font-black tracking-tight text-white font-mono">
                 IONLAB <span className="text-cyan-400 font-sans">AI</span>
               </span>
               <span className="px-1.5 py-0.5 rounded bg-cyan-950/80 border border-cyan-500/40 text-[9px] font-bold text-cyan-300 font-mono">
                 DEEPTECH
               </span>
             </div>
-            <span className="text-[10px] tracking-widest text-slate-400 font-mono uppercase block">
+            <span className="text-[9px] sm:text-[10px] tracking-widest text-slate-400 font-mono uppercase block">
               Urban Mining Intelligence
             </span>
           </div>
@@ -266,10 +267,10 @@ export default function EnterpriseShowcase() {
         </nav>
 
         {/* Action Buttons */}
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2 sm:gap-2.5">
           <button 
             onClick={() => setModalType("ir")}
-            className="px-3.5 sm:px-4 py-2 rounded-lg border border-amber-500/40 bg-amber-500/10 text-amber-300 hover:bg-amber-500/20 text-xs font-bold transition flex items-center gap-1.5 cursor-pointer"
+            className="px-3 sm:px-4 py-2 rounded-lg border border-amber-500/40 bg-amber-500/10 text-amber-300 hover:bg-amber-500/20 text-xs font-bold transition flex items-center gap-1.5 cursor-pointer shrink-0"
           >
             <DownloadCloud className="w-3.5 h-3.5" />
             <span className="hidden sm:inline">IR 자료(One-Pager)</span>
@@ -278,28 +279,29 @@ export default function EnterpriseShowcase() {
           
           <button 
             onClick={() => setModalType("api")}
-            className="px-4 sm:px-5 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400 text-slate-950 text-xs font-black tracking-tight shadow-lg shadow-cyan-500/25 transition active:scale-95 cursor-pointer flex items-center gap-1.5"
+            className="px-3.5 sm:px-5 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400 text-slate-950 text-xs font-black tracking-tight shadow-lg shadow-cyan-500/25 transition active:scale-95 cursor-pointer flex items-center gap-1.5 whitespace-nowrap shrink-0"
           >
             <Zap className="w-3.5 h-3.5" />
-            <span>엔터프라이즈 API 데모</span>
+            <span className="sm:hidden">API 데모</span>
+            <span className="hidden sm:inline">엔터프라이즈 API 데모</span>
           </button>
         </div>
       </header>
 
       {/* 2. HERO SECTION: THE BIG PROBLEM & VISION */}
-      <section className="relative pt-16 pb-20 overflow-hidden border-b border-slate-800/60">
+      <section className="relative pt-12 sm:pt-16 pb-16 sm:pb-20 overflow-hidden border-b border-slate-800/60">
         {/* Deep Industrial Cyber Background Grid */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b12_1px,transparent_1px),linear-gradient(to_bottom,#1e293b12_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-cyan-500/10 blur-[160px] pointer-events-none -z-10" />
 
         <div className="max-w-6xl mx-auto px-4 text-center relative z-10">
           
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E1522] border border-cyan-500/30 text-cyan-300 text-xs font-mono font-semibold mb-6 shadow-inner">
-            <Activity className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-[#0E1522] border border-cyan-500/30 text-cyan-300 text-[11px] sm:text-xs font-mono font-semibold mb-6 shadow-inner">
+            <Activity className="w-3.5 h-3.5 text-cyan-400 animate-pulse shrink-0" />
             <span>E-WASTE CIRCULAR ECONOMY INTELLIGENCE</span>
           </div>
 
-          <h1 className="text-3xl sm:text-6xl font-black tracking-tight text-white leading-[1.15] mb-6 max-w-4xl mx-auto break-keep font-sans">
+          <h1 className="text-2xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.2] sm:leading-[1.15] mb-5 sm:mb-6 max-w-4xl mx-auto break-keep font-sans">
             연간 6,200만 톤의 전자 폐기물,<br />
             <span className="bg-gradient-to-r from-cyan-300 via-sky-400 to-amber-300 bg-clip-text text-transparent">
               AI 비전으로 디지털 자산이 됩니다.
@@ -420,13 +422,13 @@ export default function EnterpriseShowcase() {
           </div>
 
           {/* Preset Selector & Custom Upload Tab */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
-            <span className="text-xs font-mono text-slate-400 mr-2">TARGET PCB:</span>
+          <div className="flex items-center justify-start sm:justify-center gap-2 mb-8 overflow-x-auto no-scrollbar pb-2 px-1">
+            <span className="text-[11px] font-mono text-slate-400 shrink-0 mr-1">TARGET PCB:</span>
             {PRESETS.map((preset) => (
               <button
                 key={preset.id}
                 onClick={() => handleSelectPreset(preset)}
-                className={`px-4 py-2 rounded-xl text-xs font-mono font-bold transition flex items-center gap-2 cursor-pointer ${
+                className={`px-3.5 py-2 rounded-xl text-xs font-mono font-bold transition flex items-center gap-1.5 shrink-0 whitespace-nowrap cursor-pointer ${
                   selectedPreset.id === preset.id && !userUploadedImg
                     ? "bg-cyan-500 text-slate-950 shadow-lg shadow-cyan-500/25"
                     : "bg-slate-900 text-slate-300 border border-slate-800 hover:border-slate-700"
@@ -439,7 +441,7 @@ export default function EnterpriseShowcase() {
 
             <button
               onClick={() => fileInputRef.current?.click()}
-              className={`px-4 py-2 rounded-xl text-xs font-mono font-bold transition flex items-center gap-2 border cursor-pointer ${
+              className={`px-3.5 py-2 rounded-xl text-xs font-mono font-bold transition flex items-center gap-1.5 shrink-0 whitespace-nowrap border cursor-pointer ${
                 userUploadedImg
                   ? "bg-amber-400 text-slate-950 border-amber-400 font-bold shadow-md shadow-amber-400/20"
                   : "bg-slate-900 text-slate-300 border-slate-800 hover:border-slate-700"
@@ -831,7 +833,7 @@ export default function EnterpriseShowcase() {
             </p>
 
             {/* Category Filter Tabs */}
-            <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
+            <div className="flex items-center justify-start sm:justify-center gap-2 mt-8 overflow-x-auto no-scrollbar pb-2 px-1">
               {[
                 { key: "all", label: "전체 질문 (9)" },
                 { key: "part1", label: "Part 1. 산업 가치 & 일자리 (3)" },
@@ -841,9 +843,9 @@ export default function EnterpriseShowcase() {
                 <button
                   key={tab.key}
                   onClick={() => setActiveFaqTab(tab.key as typeof activeFaqTab)}
-                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer font-mono ${
+                  className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer font-mono shrink-0 whitespace-nowrap ${
                     activeFaqTab === tab.key
-                      ? "bg-cyan-500 text-slate-950 shadow-lg shadow-cyan-500/25 scale-105"
+                      ? "bg-cyan-500 text-slate-950 shadow-lg shadow-cyan-500/25"
                       : "bg-slate-900/90 text-slate-400 hover:text-slate-200 border border-slate-800 hover:border-slate-700"
                   }`}
                 >
