@@ -20,7 +20,7 @@ function YoutubeIcon({ className = "w-4 h-4" }: { className?: string }) {
 const PRESETS = [
   {
     id: "server-ram",
-    name: "서버용 DDR4 ECC RAM",
+    name: "서버용 DDR3 ECC RAM",
     weightDefault: 1, // kg
     goldRate: 1.45, // g/kg
     silverRate: 4.80,

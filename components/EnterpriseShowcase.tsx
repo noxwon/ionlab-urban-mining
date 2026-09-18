@@ -42,7 +42,7 @@ import { FAQ_DATA } from "@/data/faqData";
 const PRESETS = [
   {
     id: "server-ram",
-    name: "Enterprise Server DDR4 ECC RAM",
+    name: "Enterprise Server DDR3 ECC RAM",
     grade: "Tier-1 High Yield",
     weightDefault: 1, // kg
     goldRate: 1.45, // g/kg
