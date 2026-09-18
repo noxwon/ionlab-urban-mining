@@ -9,7 +9,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://scan.techplay.blog"),
+  metadataBase: new URL("https://landing.techplay.blog"),
   title: {
     default: "IONLAB URBAN MINING AI | 폐기판 순금·귀금속 비전 AI 감정 & 최고가 매입",
     template: "%s | IONLAB URBAN MINING AI",
@@ -38,12 +38,12 @@ export const metadata: Metadata = {
   creator: "주식회사 이온랩 (IONLAB)",
   publisher: "주식회사 이온랩 (IONLAB)",
   alternates: {
-    canonical: "https://scan.techplay.blog",
+    canonical: "https://landing.techplay.blog",
   },
   openGraph: {
     type: "website",
     locale: "ko_KR",
-    url: "https://scan.techplay.blog",
+    url: "https://landing.techplay.blog",
     title: "IONLAB URBAN MINING AI | 폐기판 순금·귀금속 비전 AI 감정 & 최고가 매입",
     description:
       "스마트폰 사진 한 장으로 3초 만에 폐기판 속 순금·은·팔라듐 가치 확인! 당일 100% 현장 즉시 정산 및 전국 수거 대응.",
@@ -90,6 +90,7 @@ export default function RootLayout({
       name: "IONLAB Urban Mining Vision AI",
       operatingSystem: "Web Browser",
       applicationCategory: "BusinessApplication",
+      url: "https://landing.techplay.blog",
       offers: {
         "@type": "Offer",
         price: "0",
@@ -111,9 +112,10 @@ export default function RootLayout({
       "@context": "https://schema.org",
       "@type": "Organization",
       name: "주식회사 이온랩 (IONLAB Co., Ltd.)",
-      url: "https://scan.techplay.blog",
+      url: "https://landing.techplay.blog",
       logo: "https://images.unsplash.com/photo-1562976540-1502c2145186?w=200&h=200&q=80",
       sameAs: [
+        "https://scan.techplay.blog",
         "https://scrap.techplay.blog",
         "https://price.techplay.blog",
         "https://www.youtube.com/@골드스크랩",

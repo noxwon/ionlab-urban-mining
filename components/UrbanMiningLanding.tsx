@@ -212,14 +212,14 @@ export default function UrbanMiningLanding() {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-lg font-black tracking-tight text-white block leading-none">
+              <a href="https://landing.techplay.blog" className="text-lg font-black tracking-tight text-white block leading-none hover:opacity-90 transition">
                 IONLAB <span className="text-amber-400 font-light">URBAN MINING</span>
-              </span>
+              </a>
               <span className="bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[9px] font-bold px-1.5 py-0.5 rounded">
                 BETA
               </span>
             </div>
-            <span className="text-[10px] tracking-widest text-slate-400 font-mono uppercase">AI 도시광산 자원가치평가</span>
+            <a href="https://landing.techplay.blog" className="text-[10px] tracking-widest text-slate-400 font-mono uppercase hover:text-amber-300 transition block mt-0.5">landing.techplay.blog</a>
           </div>
         </div>
 
@@ -693,6 +693,7 @@ export default function UrbanMiningLanding() {
               <span className="text-slate-500 text-[11px]">도시광산 AI 비전 평가 엔진 & 전자스크랩 자원순환 네트워크</span>
             </div>
             <div className="flex items-center gap-4 text-xs">
+              <a href="https://landing.techplay.blog" className="text-amber-400 font-bold hover:underline transition">홈(landing)</a>
               <a href="https://scan.techplay.blog" target="_blank" rel="noopener noreferrer" className="hover:text-amber-400 transition">AI 프로토타입(scan)</a>
               <a href="https://scrap.techplay.blog" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition">스크랩 매입(scrap)</a>
               <a href="https://price.techplay.blog/" target="_blank" rel="noopener noreferrer" className="hover:text-amber-400 transition">단가표(price)</a>
