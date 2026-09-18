@@ -204,7 +204,7 @@ export default function EnterpriseShowcase() {
   };
 
   return (
-    <div className="min-h-screen bg-[#070A0F] text-slate-100 selection:bg-cyan-500 selection:text-slate-950 font-sans antialiased">
+    <div className="min-h-screen w-full overflow-x-hidden bg-[#070A0F] text-slate-100 selection:bg-cyan-500 selection:text-slate-950 font-sans antialiased">
       
       {/* Hidden File Input */}
       <input 
@@ -293,7 +293,7 @@ export default function EnterpriseShowcase() {
       <section className="relative pt-12 sm:pt-16 pb-16 sm:pb-20 overflow-hidden border-b border-slate-800/60">
         {/* Deep Industrial Cyber Background Grid */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b12_1px,transparent_1px),linear-gradient(to_bottom,#1e293b12_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-cyan-500/10 blur-[160px] pointer-events-none -z-10" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[700px] h-[350px] bg-cyan-500/10 blur-[160px] pointer-events-none -z-10" />
 
         <div className="max-w-6xl mx-auto px-4 text-center relative z-10">
           
@@ -606,9 +606,9 @@ export default function EnterpriseShowcase() {
       </section>
 
       {/* 5. PROPRIETARY TECH PIPELINE (MOAT ARCHITECTURE) */}
-      <section id="process" className="py-24 max-w-6xl mx-auto px-4 sm:px-6 relative">
+      <section id="process" className="py-24 max-w-6xl mx-auto px-4 sm:px-6 relative overflow-hidden">
         {/* Background Subtle Radial Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-cyan-500/5 blur-[140px] pointer-events-none -z-10" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[600px] h-[300px] bg-cyan-500/5 blur-[140px] pointer-events-none -z-10" />
 
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-mono text-xs tracking-wider uppercase mb-3">
@@ -793,9 +793,9 @@ export default function EnterpriseShowcase() {
       </section>
 
       {/* 7. MARKET OPPORTUNITY & SCALE (DATA-DRIVEN TAM / SAM / SOM & IP DEFENSIVE MOAT) */}
-      <section id="market-esg" className="py-24 max-w-6xl mx-auto px-4 sm:px-6 relative">
+      <section id="market-esg" className="py-24 max-w-6xl mx-auto px-4 sm:px-6 relative overflow-hidden">
         {/* Background Subtle Radial Glow */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-emerald-500/5 blur-[160px] pointer-events-none -z-10" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[700px] h-[350px] bg-emerald-500/5 blur-[160px] pointer-events-none -z-10" />
 
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 font-mono text-xs tracking-wider uppercase mb-3">
