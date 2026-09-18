@@ -29,9 +29,13 @@ import {
   Camera,
   Upload,
   Loader2,
-  AlertCircle
+  AlertCircle,
+  ChevronDown,
+  HelpCircle,
+  Lightbulb
 } from "lucide-react";
 import { sendLeadEmail } from "@/lib/email";
+import { FAQ_DATA } from "@/data/faqData";
 
 // 샘플 스크랩 프리셋 데이터
 const PRESETS = [
@@ -115,6 +119,18 @@ export default function EnterpriseShowcase() {
     type: "VC / Investment Fund",
     note: ""
   });
+
+  // FAQ 상태 (카테고리 탭 및 아코디언 토글)
+  const [activeFaqTab, setActiveFaqTab] = useState<"all" | "part1" | "part2" | "part3">("all");
+  const [openFaqIds, setOpenFaqIds] = useState<Record<string, boolean>>({
+    q1: true,
+    q4: true,
+    q6: true,
+  });
+
+  const toggleFaq = (id: string) => {
+    setOpenFaqIds((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -246,6 +262,7 @@ export default function EnterpriseShowcase() {
           <a href="#process" className="hover:text-cyan-400 transition">Process Optimization</a>
           <a href="#business-model" className="hover:text-cyan-400 transition">Business Model</a>
           <a href="#market-esg" className="hover:text-cyan-400 transition">ESG & Impact</a>
+          <a href="#faq" className="hover:text-cyan-400 transition">FAQ</a>
         </nav>
 
         {/* Action Buttons */}
@@ -796,7 +813,123 @@ export default function EnterpriseShowcase() {
         </div>
       </section>
 
-      {/* 8. INVESTOR CTA & MILESTONE */}
+      {/* 8. FAQ ACCORDION SECTION */}
+      <section id="faq" className="py-24 border-t border-slate-800 bg-[#070A0F] relative">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          
+          {/* Section Header */}
+          <div className="text-center mb-14">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono font-bold mb-4">
+              <HelpCircle className="w-3.5 h-3.5" />
+              <span>DILIGENCE & DEEPTECH FAQ</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight mb-4 break-keep">
+              투자자 및 파트너를 위한 <span className="text-cyan-400">핵심 Q&A</span>
+            </h2>
+            <p className="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed break-keep">
+              고령화 사회 일자리와 산업적 가치, 비전 AI의 한계 돌파 전략, 그리고 VC 심사역의 날카로운 질문에 대한 이온랩의 검증된 해답입니다.
+            </p>
+
+            {/* Category Filter Tabs */}
+            <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
+              {[
+                { key: "all", label: "전체 질문 (9)" },
+                { key: "part1", label: "Part 1. 산업 가치 & 일자리 (3)" },
+                { key: "part2", label: "Part 2. 기술 실현성 & 한계돌파 (2)" },
+                { key: "part3", label: "Part 3. VC & IR 질의응답 (4)" },
+              ].map((tab) => (
+                <button
+                  key={tab.key}
+                  onClick={() => setActiveFaqTab(tab.key as typeof activeFaqTab)}
+                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer font-mono ${
+                    activeFaqTab === tab.key
+                      ? "bg-cyan-500 text-slate-950 shadow-lg shadow-cyan-500/25 scale-105"
+                      : "bg-slate-900/90 text-slate-400 hover:text-slate-200 border border-slate-800 hover:border-slate-700"
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Accordion List */}
+          <div className="space-y-4">
+            {FAQ_DATA.filter((item) => activeFaqTab === "all" || item.partKey === activeFaqTab).map((faq) => {
+              const isOpen = !!openFaqIds[faq.id];
+              return (
+                <div
+                  key={faq.id}
+                  className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
+                    isOpen
+                      ? "bg-[#0B0F17] border-cyan-500/40 shadow-xl shadow-cyan-950/20"
+                      : "bg-[#0B0F17]/70 border-slate-800/80 hover:border-slate-700"
+                  }`}
+                >
+                  <button
+                    onClick={() => toggleFaq(faq.id)}
+                    className="w-full px-5 py-5 sm:px-6 sm:py-5.5 flex items-start justify-between gap-4 text-left transition cursor-pointer"
+                  >
+                    <div className="space-y-1.5 pr-2">
+                      <div className="flex items-center gap-2">
+                        <span className={`text-[11px] font-mono font-bold px-2 py-0.5 rounded ${
+                          faq.partKey === "part1"
+                            ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/30"
+                            : faq.partKey === "part2"
+                            ? "bg-cyan-500/10 text-cyan-400 border border-cyan-500/30"
+                            : "bg-amber-500/10 text-amber-400 border border-amber-500/30"
+                        }`}>
+                          {faq.partBadge}
+                        </span>
+                      </div>
+                      <h3 className="text-sm sm:text-base font-bold text-white tracking-tight leading-snug break-keep">
+                        {faq.question}
+                      </h3>
+                    </div>
+
+                    <div className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 mt-0.5 transition-all duration-300 ${
+                      isOpen
+                        ? "bg-cyan-500/20 text-cyan-400 rotate-180"
+                        : "bg-slate-800/80 text-slate-400 hover:text-white"
+                    }`}>
+                      <ChevronDown className="w-4 h-4" />
+                    </div>
+                  </button>
+
+                  {/* Accordion Body */}
+                  {isOpen && (
+                    <div className="px-5 pb-6 sm:px-6 sm:pb-6 pt-1 border-t border-slate-800/60 animate-fadeIn">
+                      {faq.answer}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Bottom Diligence CTA */}
+          <div className="mt-12 p-6 rounded-2xl bg-gradient-to-r from-slate-900/90 via-[#0B1220] to-slate-900/90 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <div>
+              <h4 className="text-sm font-bold text-white mb-1">
+                실사(Due Diligence) 자료 및 기술 백서가 필요하신가요?
+              </h4>
+              <p className="text-xs text-slate-400">
+                기판별 화학 침출 실측 수율 데이터 및 상세 재무 추정 모델을 담은 IR 패키지를 24시간 이내에 제공합니다.
+              </p>
+            </div>
+            <button
+              onClick={() => setModalType("ir")}
+              className="px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs transition shadow-md shadow-cyan-500/20 shrink-0 flex items-center gap-1.5 cursor-pointer"
+            >
+              <FileText className="w-3.5 h-3.5" />
+              <span>IR 패키지 신청</span>
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 9. INVESTOR CTA & MILESTONE */}
       <section id="investor" className="py-24 border-t border-slate-800 bg-gradient-to-b from-[#070A0F] to-[#0B111D] relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
           <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-400 to-yellow-600 text-slate-950 flex items-center justify-center mx-auto mb-6 shadow-xl shadow-amber-500/20">
