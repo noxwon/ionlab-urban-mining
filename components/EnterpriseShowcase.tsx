@@ -740,29 +740,29 @@ export default function EnterpriseShowcase() {
               <div className="text-xs font-mono text-cyan-400 font-bold mb-2">MARKET OPPORTUNITY</div>
               <h3 className="text-2xl font-bold text-white mb-6">CAGR 13.2% 고성장 E-Waste 시장</h3>
               
-              <div className="space-y-4 font-mono">
+              <div className="space-y-4">
                 <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800">
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-slate-400 text-xs">TAM (Total Addressable Market)</span>
-                    <span className="text-xl font-bold text-white">₩ 100조 원</span>
+                  <div className="flex justify-between items-baseline gap-2 mb-1">
+                    <span className="text-slate-400 text-xs break-keep">TAM (Total Addressable Market)</span>
+                    <span className="text-lg sm:text-xl font-black text-white whitespace-nowrap shrink-0">₩ 100조 원</span>
                   </div>
-                  <p className="text-[11px] text-slate-500 font-sans">글로벌 연간 전자폐기물(E-Waste) 자원 회수 총 시장</p>
+                  <p className="text-[11px] text-slate-400 break-keep">글로벌 연간 전자폐기물(E-Waste) 자원 회수 총 시장</p>
                 </div>
 
                 <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800">
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-slate-400 text-xs">SAM (Serviceable Addressable)</span>
-                    <span className="text-xl font-bold text-cyan-400">₩ 12조 원</span>
+                  <div className="flex justify-between items-baseline gap-2 mb-1">
+                    <span className="text-slate-400 text-xs break-keep">SAM (Serviceable Addressable)</span>
+                    <span className="text-lg sm:text-xl font-black text-cyan-400 whitespace-nowrap shrink-0">₩ 12조 원</span>
                   </div>
-                  <p className="text-[11px] text-slate-500 font-sans">국내외 고품위 PCB 및 반도체 스크랩 정련 시장</p>
+                  <p className="text-[11px] text-slate-400 break-keep">국내외 고품위 PCB 및 반도체 스크랩 정련 시장</p>
                 </div>
 
                 <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800">
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-slate-400 text-xs">SOM (Serviceable Obtainable)</span>
-                    <span className="text-xl font-bold text-amber-400">₩ 1.2조 원</span>
+                  <div className="flex justify-between items-baseline gap-2 mb-1">
+                    <span className="text-slate-400 text-xs break-keep">SOM (Serviceable Obtainable)</span>
+                    <span className="text-lg sm:text-xl font-black text-amber-400 whitespace-nowrap shrink-0">₩ 1.2조 원</span>
                   </div>
-                  <p className="text-[11px] text-slate-500 font-sans">B2B AI 감정 SaaS 및 화학 최적화 솔루션 타깃 시장</p>
+                  <p className="text-[11px] text-slate-400 break-keep">B2B AI 감정 SaaS 및 화학 최적화 솔루션 타깃 시장</p>
                 </div>
               </div>
             </div>
@@ -966,21 +966,32 @@ export default function EnterpriseShowcase() {
           </div>
 
           {/* Company Metadata Info */}
-          <div className="mt-16 pt-8 border-t border-slate-800/80 text-xs font-mono text-slate-400 space-y-1">
-            <div className="text-slate-300 font-bold">주식회사 이온랩 (IONLAB Co., Ltd.)</div>
-            <div>연구개발 본사: 경기도 평택시 고덕면 고덕여염로 (삼성전자 평택캠퍼스 인접)</div>
-            <div>공동 기술 파트너십: AETHER MINING 도시광산 네트워크</div>
+          <div className="mt-16 pt-8 border-t border-slate-800/80 text-xs text-slate-400 space-y-1.5 break-keep">
+            <div className="text-slate-200 font-bold text-sm">주식회사 이온랩 (IONLAB Co., Ltd.)</div>
+            <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-slate-400 text-[11px] sm:text-xs">
+              <span>대표자: 원홍식</span>
+              <span className="text-slate-700">|</span>
+              <span>사업자등록번호: 272-87-04029</span>
+            </div>
+            <div className="text-[11px] sm:text-xs text-slate-400">
+              연구개발 본사: 경기도 평택시 고덕면 고덕여염로 (삼성전자 평택캠퍼스 인접)
+            </div>
+            <div className="text-[11px] sm:text-xs text-slate-500">
+              공동 기술 파트너십: AETHER MINING 도시광산 네트워크
+            </div>
           </div>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="py-8 border-t border-slate-900 text-xs text-slate-500 font-mono bg-slate-950">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div>© 2026 주식회사 이온랩 (IONLAB Co., Ltd.). All rights reserved.</div>
-          <div className="flex items-center gap-6">
+      <footer className="py-8 border-t border-slate-900 text-xs text-slate-500 bg-slate-950">
+        <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+          <div className="text-[11px] sm:text-xs text-slate-500">
+            © 2026 IONLAB Co., Ltd. All rights reserved.
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-[11px] sm:text-xs font-mono">
             <a href="https://scan.techplay.blog" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition">AI Prototype</a>
-            <a href="https://scrap.techplay.blog" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition">Enterprise Scrap Network</a>
+            <a href="https://scrap.techplay.blog" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition">Scrap Network</a>
             <a href="https://price.techplay.blog" target="_blank" rel="noopener noreferrer" className="hover:text-amber-400 transition">Metal Index</a>
           </div>
         </div>
