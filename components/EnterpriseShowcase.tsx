@@ -27,8 +27,11 @@ import {
   Mail,
   Send,
   Camera,
-  Upload
+  Upload,
+  Loader2,
+  AlertCircle
 } from "lucide-react";
+import { sendLeadEmail } from "@/lib/email";
 
 // 샘플 스크랩 프리셋 데이터
 const PRESETS = [
@@ -103,6 +106,8 @@ export default function EnterpriseShowcase() {
   // 모달 상태
   const [modalType, setModalType] = useState<"ir" | "api" | null>(null);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     org: "",
@@ -147,14 +152,38 @@ export default function EnterpriseShowcase() {
     currentPd * METAL_PRICES.palladium
   );
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setFormSubmitted(true);
-    setTimeout(() => {
-      setModalType(null);
-      setFormSubmitted(false);
-      setFormData({ name: "", org: "", email: "", type: "VC / Investment Fund", note: "" });
-    }, 2000);
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    const typeLabel = modalType === "ir" 
+      ? `TIPS / VC IR 피치덱 신청 (${formData.type})` 
+      : `엔터프라이즈 API 솔루션 데모 신청 (${formData.type})`;
+
+    const result = await sendLeadEmail({
+      name: formData.name,
+      org: formData.org,
+      email: formData.email,
+      type: typeLabel,
+      note: formData.note,
+      source: "https://landing.techplay.blog"
+    });
+
+    setIsSubmitting(false);
+
+    if (result.success) {
+      setFormSubmitted(true);
+      setTimeout(() => {
+        setModalType(null);
+        setFormSubmitted(false);
+        setFormData({ name: "", org: "", email: "", type: "VC / Investment Fund", note: "" });
+      }, 3500);
+    } else {
+      setSubmitError(result.error || "메일 전송에 실패했습니다. 잠시 후 다시 시도해주세요.");
+    }
   };
 
   return (
@@ -908,13 +937,30 @@ export default function EnterpriseShowcase() {
                     </select>
                   </div>
 
+                  {submitError && (
+                    <div className="p-3 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 flex items-start gap-2 text-xs">
+                      <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
+                      <span>{submitError}</span>
+                    </div>
+                  )}
+
                   <div className="pt-2">
                     <button 
                       type="submit" 
-                      className="w-full py-3.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-black text-sm transition shadow-lg shadow-cyan-500/25 flex items-center justify-center gap-2 cursor-pointer"
+                      disabled={isSubmitting}
+                      className="w-full py-3.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 disabled:opacity-50 disabled:cursor-not-allowed text-slate-950 font-black text-sm transition shadow-lg shadow-cyan-500/25 flex items-center justify-center gap-2 cursor-pointer"
                     >
-                      <Send className="w-4 h-4" />
-                      <span>{modalType === "ir" ? "IR 자료 신청 완료" : "데모 요청 제출"}</span>
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                          <span>전송 중...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-4 h-4" />
+                          <span>{modalType === "ir" ? "IR 자료 신청 완료" : "데모 요청 제출"}</span>
+                        </>
+                      )}
                     </button>
                   </div>
                 </form>
