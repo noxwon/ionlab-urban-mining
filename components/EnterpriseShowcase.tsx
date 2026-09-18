@@ -32,7 +32,8 @@ import {
   AlertCircle,
   ChevronDown,
   HelpCircle,
-  Lightbulb
+  Lightbulb,
+  Database
 } from "lucide-react";
 import { sendLeadEmail } from "@/lib/email";
 import { FAQ_DATA } from "@/data/faqData";
@@ -604,56 +605,126 @@ export default function EnterpriseShowcase() {
         </div>
       </section>
 
-      {/* 5. PROPRIETARY TECH: AI + 화학 정련 도메인 지식의 결합 (MOAT) */}
-      <section id="process" className="py-24 max-w-6xl mx-auto px-4">
+      {/* 5. PROPRIETARY TECH PIPELINE (MOAT ARCHITECTURE) */}
+      <section id="process" className="py-24 max-w-6xl mx-auto px-4 sm:px-6 relative">
+        {/* Background Subtle Radial Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-cyan-500/5 blur-[140px] pointer-events-none -z-10" />
+
         <div className="text-center mb-16">
-          <span className="text-xs font-mono uppercase tracking-widest text-cyan-400 font-bold block mb-2">
-            PROPRIETARY TECHNOLOGY & DEEP CHEMICAL MOAT
-          </span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-mono text-xs tracking-wider uppercase mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+            <span>PROPRIETARY TECH PIPELINE</span>
+          </div>
           <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight break-keep">
             단순 AI 비전을 넘어, <span className="text-cyan-400">습식 제련 화학 레시피 도출</span>까지
           </h2>
-          <p className="text-sm text-slate-400 mt-3 max-w-2xl mx-auto break-keep">
-            소프트웨어 기업이 흉내 낼 수 없는 실측 습식 침출 데이터와 야금학(Metallurgy) 도메인 결합
+          <p className="text-sm text-slate-400 mt-3 max-w-2xl mx-auto break-keep leading-relaxed">
+            소프트웨어 기업이 흉내 낼 수 없는 실측 습식 침출 데이터와 야금학(Metallurgy) 도메인이 결합된 엔드투엔드 아키텍처
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-          {/* Step 1 */}
-          <div className="bg-[#0B0F17] border border-slate-800 p-8 rounded-3xl relative">
-            <div className="text-cyan-400 font-mono text-sm font-bold mb-4">STEP 01 // CV</div>
-            <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-6">
-              <Microscope className="w-6 h-6" />
+        {/* 3-Stage Connected Architecture Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 relative">
+          
+          {/* Desktop Connecting Line between cards */}
+          <div className="hidden md:block absolute top-1/2 left-8 right-8 h-[1px] bg-gradient-to-r from-cyan-500/40 via-amber-500/40 to-emerald-500/40 -translate-y-12 pointer-events-none z-0" />
+
+          {/* Step 1 Card */}
+          <div className="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 hover:border-cyan-500/50 transition-all duration-300 rounded-3xl p-6 sm:p-8 flex flex-col justify-between group relative z-10 shadow-xl">
+            <div>
+              {/* Pill Badge */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/25 text-cyan-400 font-mono text-[11px] sm:text-xs tracking-wider uppercase mb-5">
+                <span className="px-1.5 py-0.5 rounded bg-cyan-400/20 text-cyan-300 font-bold">01</span>
+                <span className="w-1 h-1 rounded-full bg-cyan-400 animate-ping" />
+                <span>COMPUTER VISION</span>
+              </div>
+
+              <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+                <Microscope className="w-6 h-6" />
+              </div>
+
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-2.5 break-keep">
+                비파괴 초정밀 부품 단위 분할
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed break-keep mb-6">
+                고가의 XRF 파괴 분석 없이 0.28초 내 칩셋(BGA, DRAM, MLCC, 골드핑거) 규격 및 도금 면적을 자동 식별합니다.
+              </p>
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">Computer Vision Segmentation</h3>
-            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed break-keep">
-              BGA, SOP, MLCC, 골드핑거 등 40여 종의 반도체 패키지 규격을 0.1초 만에 마이크로 픽셀 단위로 분할하고 도금 두께를 역추산합니다.
-            </p>
+
+            {/* Metric Pill */}
+            <div className="pt-4 border-t border-slate-800/80 flex items-center justify-between">
+              <span className="text-[11px] font-mono text-slate-400">Processing Speed</span>
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 font-mono text-xs font-bold">
+                <Activity className="w-3 h-3 text-cyan-400" />
+                Inference Latency: 0.28s
+              </span>
+            </div>
           </div>
 
-          {/* Step 2 */}
-          <div className="bg-[#0B0F17] border border-slate-800 p-8 rounded-3xl relative">
-            <div className="text-amber-400 font-mono text-sm font-bold mb-4">STEP 02 // YIELD</div>
-            <div className="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-6">
-              <BarChart3 className="w-6 h-6" />
+          {/* Step 2 Card */}
+          <div className="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 hover:border-amber-500/50 transition-all duration-300 rounded-3xl p-6 sm:p-8 flex flex-col justify-between group relative z-10 shadow-xl">
+            <div>
+              {/* Pill Badge */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-400 font-mono text-[11px] sm:text-xs tracking-wider uppercase mb-5">
+                <span className="px-1.5 py-0.5 rounded bg-amber-400/20 text-amber-300 font-bold">02</span>
+                <span className="w-1 h-1 rounded-full bg-amber-400 animate-ping" />
+                <span>REAL-TIME VALUATION</span>
+              </div>
+
+              <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+                <BarChart3 className="w-6 h-6" />
+              </div>
+
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-2.5 break-keep">
+                공식 금융 데이터 기반 가치 산출
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed break-keep mb-6">
+                한국거래소(KRX) 금시장 및 LME 국제 시세 3분 주기 미러링 + 패키지별 실질 회수율 매핑 알고리즘을 적용합니다.
+              </p>
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">Yield Prediction Engine</h3>
-            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed break-keep">
-              실제 제련소 습식 침출 이력 10,000건 이상의 회귀 모델을 기반으로, 물리적 손실률을 반영한 실질 회수 가능 수율(98.2%)을 정밀 산출합니다.
-            </p>
+
+            {/* Metric Pill */}
+            <div className="pt-4 border-t border-slate-800/80 flex items-center justify-between">
+              <span className="text-[11px] font-mono text-slate-400">Financial Accuracy</span>
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-300 font-mono text-xs font-bold">
+                <TrendingUp className="w-3 h-3 text-amber-400" />
+                KRX 정합성: 99.9%
+              </span>
+            </div>
           </div>
 
-          {/* Step 3 */}
-          <div className="bg-[#0B0F17] border border-slate-800 p-8 rounded-3xl relative">
-            <div className="text-emerald-400 font-mono text-sm font-bold mb-4">STEP 03 // CHEMICAL</div>
-            <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-6">
-              <FlaskConical className="w-6 h-6" />
+          {/* Step 3 Card */}
+          <div className="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 hover:border-emerald-500/50 transition-all duration-300 rounded-3xl p-6 sm:p-8 flex flex-col justify-between group relative z-10 shadow-xl">
+            <div>
+              {/* Pill Badge */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 font-mono text-[11px] sm:text-xs tracking-wider uppercase mb-5">
+                <span className="px-1.5 py-0.5 rounded bg-emerald-400/20 text-emerald-300 font-bold">03</span>
+                <span className="w-1 h-1 rounded-full bg-emerald-400 animate-ping" />
+                <span>DYNAMIC RECIPE</span>
+              </div>
+
+              <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+                <FlaskConical className="w-6 h-6" />
+              </div>
+
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-2.5 break-keep">
+                화학 습식 정련 최적화 처방 엔진
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed break-keep mb-6">
+                기판 내 방해 금속(Cu, Fe, Ni) 비율 역산 ➔ 질산/왕수 최적 투입량 자동 처방으로 화학 원가를 42% 절감합니다.
+              </p>
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">Dynamic Chemical Recipe</h3>
-            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed break-keep">
-              기판 내 구리·주석 함량에 따른 질산/왕수/환원제(SMB)의 최적 투입 비율을 자동 처방하여 약품 투입비 42% 절감 및 폐수 배출을 최소화합니다.
-            </p>
+
+            {/* Metric Pill */}
+            <div className="pt-4 border-t border-slate-800/80 flex items-center justify-between">
+              <span className="text-[11px] font-mono text-slate-400">Cost Reduction</span>
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-mono text-xs font-bold">
+                <Sparkles className="w-3 h-3 text-emerald-400" />
+                Chemical Cost: -42%
+              </span>
+            </div>
           </div>
+
         </div>
       </section>
 
@@ -721,98 +792,169 @@ export default function EnterpriseShowcase() {
         </div>
       </section>
 
-      {/* 7. MARKET OPPORTUNITY & ESG IMPACT (TAM/SAM/SOM & IP) */}
-      <section id="market-esg" className="py-24 max-w-6xl mx-auto px-4">
+      {/* 7. MARKET OPPORTUNITY & SCALE (DATA-DRIVEN TAM / SAM / SOM & IP DEFENSIVE MOAT) */}
+      <section id="market-esg" className="py-24 max-w-6xl mx-auto px-4 sm:px-6 relative">
+        {/* Background Subtle Radial Glow */}
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-emerald-500/5 blur-[160px] pointer-events-none -z-10" />
+
         <div className="text-center mb-16">
-          <span className="text-xs font-mono uppercase tracking-widest text-cyan-400 font-bold block mb-2">
-            GLOBAL IMPACT & MARKET SCALE
-          </span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 font-mono text-xs tracking-wider uppercase mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span>DATA-DRIVEN MARKET SCALE</span>
+          </div>
           <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight break-keep">
-            100조 원 시장 규모와 <span className="text-emerald-400">국가 자원 안보 ESG 가치</span>
+            공인 데이터로 입증된 <span className="text-emerald-400">글로벌 순환경제 시장</span>
           </h2>
+          <p className="text-sm text-slate-400 mt-3 max-w-2xl mx-auto break-keep leading-relaxed">
+            UN 공식 보고서 및 시장조사기관의 데이터에 기반한 실질 시장 규모와 유효 타깃입니다.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        {/* Bento Grid 3 Cards: TAM / SAM / SOM */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-8">
           
-          {/* Market Size TAM/SAM/SOM */}
-          <div className="lg:col-span-6 bg-[#0B0F17] border border-slate-800 p-8 rounded-3xl flex flex-col justify-between">
+          {/* Card 1 [TAM] */}
+          <div className="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 hover:border-amber-500/50 transition-all duration-300 rounded-3xl p-6 sm:p-8 flex flex-col justify-between group relative overflow-hidden shadow-xl">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 blur-[50px] pointer-events-none" />
+            
             <div>
-              <div className="text-xs font-mono text-cyan-400 font-bold mb-2">MARKET OPPORTUNITY</div>
-              <h3 className="text-2xl font-bold text-white mb-6">CAGR 13.2% 고성장 E-Waste 시장</h3>
-              
-              <div className="space-y-4">
-                <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800">
-                  <div className="flex justify-between items-baseline gap-2 mb-1">
-                    <span className="text-slate-400 text-xs break-keep">TAM (Total Addressable Market)</span>
-                    <span className="text-lg sm:text-xl font-black text-white whitespace-nowrap shrink-0">₩ 100조 원</span>
-                  </div>
-                  <p className="text-[11px] text-slate-400 break-keep">글로벌 연간 전자폐기물(E-Waste) 자원 회수 총 시장</p>
-                </div>
+              {/* Header Badge */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-400 font-mono text-[11px] sm:text-xs tracking-wider uppercase mb-5">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+                <span>TAM · 전 세계 총 시장¹</span>
+              </div>
 
-                <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800">
-                  <div className="flex justify-between items-baseline gap-2 mb-1">
-                    <span className="text-slate-400 text-xs break-keep">SAM (Serviceable Addressable)</span>
-                    <span className="text-lg sm:text-xl font-black text-cyan-400 whitespace-nowrap shrink-0">₩ 12조 원</span>
-                  </div>
-                  <p className="text-[11px] text-slate-400 break-keep">국내외 고품위 PCB 및 반도체 스크랩 정련 시장</p>
+              <div className="mb-4">
+                <div className="text-2xl sm:text-3xl font-black text-white tracking-tight whitespace-nowrap">
+                  ₩ 120조 원
                 </div>
-
-                <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800">
-                  <div className="flex justify-between items-baseline gap-2 mb-1">
-                    <span className="text-slate-400 text-xs break-keep">SOM (Serviceable Obtainable)</span>
-                    <span className="text-lg sm:text-xl font-black text-amber-400 whitespace-nowrap shrink-0">₩ 1.2조 원</span>
-                  </div>
-                  <p className="text-[11px] text-slate-400 break-keep">B2B AI 감정 SaaS 및 화학 최적화 솔루션 타깃 시장</p>
+                <div className="text-xs font-mono text-amber-400/90 mt-1 font-semibold">
+                  $91 Billion (글로벌 총 매장량)
                 </div>
               </div>
+
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed break-keep">
+                글로벌 연간 전자폐기물(E-Waste 6,200만 톤) 내 매장 유가금속 총 잠재가치
+              </p>
             </div>
 
-            <div className="mt-6 pt-6 border-t border-slate-800 text-xs text-slate-400 flex items-center gap-2">
-              <Award className="w-4 h-4 text-amber-400 shrink-0" />
-              <span>핵심 특허 출원: AI 비전 기반 PCB 유가금속 분석 및 정련 공정 제어 시스템</span>
+            <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
+              <span>UN E-Waste Global Monitor</span>
+              <span className="text-amber-400 font-bold">62 Mt/yr</span>
             </div>
           </div>
 
-          {/* ESG & Climate Impact */}
-          <div className="lg:col-span-6 bg-gradient-to-br from-[#0B0F17] to-[#0A1624] border border-cyan-500/30 p-8 rounded-3xl flex flex-col justify-between">
+          {/* Card 2 [SAM] */}
+          <div className="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 hover:border-cyan-500/50 transition-all duration-300 rounded-3xl p-6 sm:p-8 flex flex-col justify-between group relative overflow-hidden shadow-xl">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 blur-[50px] pointer-events-none" />
+
             <div>
-              <div className="text-xs font-mono text-emerald-400 font-bold mb-2">ESG & RESOURCE SECURITY</div>
-              <h3 className="text-2xl font-bold text-white mb-6">탄소 80% 저감과 핵심 광물 자립</h3>
+              {/* Header Badge */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/25 text-cyan-400 font-mono text-[11px] sm:text-xs tracking-wider uppercase mb-5">
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+                <span>SAM · 정련 유효 시장²</span>
+              </div>
 
-              <div className="space-y-4 text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <div className="flex items-start gap-3 p-4 rounded-2xl bg-slate-950/60 border border-slate-800">
-                  <div className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
-                    <Globe2 className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <strong className="text-white block text-sm mb-1 font-sans">천연 광산 채굴 대비 탄소 배출 80% 저감</strong>
-                    <p className="text-slate-400 text-xs break-keep">
-                      금 1kg 채굴 시 12.5톤의 CO2가 발생하지만, 도시광산 리사이클링은 2.5톤 미만으로 억제되어 탄소 배출권 크레딧과 직결됩니다.
-                    </p>
-                  </div>
+              <div className="mb-4">
+                <div className="text-2xl sm:text-3xl font-black text-cyan-400 tracking-tight whitespace-nowrap">
+                  ₩ 12조 원
                 </div>
-
-                <div className="flex items-start gap-3 p-4 rounded-2xl bg-slate-950/60 border border-slate-800">
-                  <div className="w-8 h-8 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center shrink-0 mt-0.5">
-                    <ShieldCheck className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <strong className="text-white block text-sm mb-1 font-sans">국가 핵심 희소금속 자립 공급망 구축</strong>
-                    <p className="text-slate-400 text-xs break-keep">
-                      전량 해외 수입에 의존하는 반도체 핵심 귀금속(Au, Ag, Pd)의 국내 재순환을 통해 자원 안보 리스크를 헤지합니다.
-                    </p>
-                  </div>
+                <div className="text-xs font-mono text-cyan-300/90 mt-1 font-semibold">
+                  CAGR 13.2% (고품위 IT 스크랩)
                 </div>
               </div>
+
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed break-keep">
+                귀금속 가치의 80%가 집중된 글로벌 고품위 폐PCB 및 IT 스크랩 정련 시장
+              </p>
             </div>
 
-            <div className="mt-6 pt-6 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-400">
-              <span>UN SDGs 12: 지속 가능한 생산과 소비</span>
-              <span className="text-emerald-400 font-bold">Circular Economy 100%</span>
+            <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
+              <span>High-Grade PCB Concentrates</span>
+              <span className="text-cyan-400 font-bold">80% Value Core</span>
+            </div>
+          </div>
+
+          {/* Card 3 [SOM] */}
+          <div className="bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 hover:border-emerald-500/50 transition-all duration-300 rounded-3xl p-6 sm:p-8 flex flex-col justify-between group relative overflow-hidden shadow-xl">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 blur-[50px] pointer-events-none" />
+
+            <div>
+              {/* Header Badge */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 font-mono text-[11px] sm:text-xs tracking-wider uppercase mb-5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                <span>SOM · 즉시 수익 시장³</span>
+              </div>
+
+              <div className="mb-4">
+                <div className="text-2xl sm:text-3xl font-black text-emerald-400 tracking-tight whitespace-nowrap">
+                  ₩ 3,600억 원
+                </div>
+                <div className="text-xs font-mono text-emerald-300/90 mt-1 font-semibold">
+                  Bottom-up Model (SaaS & API)
+                </div>
+              </div>
+
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed break-keep">
+                글로벌 12,000개 ITAD 기업 및 제련소 대상 AI 감정 SaaS 라이선스 & 제어 API
+              </p>
+            </div>
+
+            <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
+              <span>12,000+ Enterprise Targets</span>
+              <span className="text-emerald-400 font-bold">Direct Monetization</span>
             </div>
           </div>
 
         </div>
+
+        {/* Data Source Footnote */}
+        <div className="p-4 sm:p-5 rounded-2xl bg-[#080D15] border border-slate-800/80 text-[11px] font-mono text-slate-400 leading-relaxed space-y-1 mb-8">
+          <div className="flex items-center gap-1.5 text-slate-300 font-bold mb-1">
+            <Database className="w-3.5 h-3.5 text-cyan-400" />
+            <span>DATA SOURCE & METHODOLOGY NOTES</span>
+          </div>
+          <div>¹ UN 글로벌 전자폐기물 모니터 (UNITAR / ITU The Global E-waste Monitor)</div>
+          <div>² Allied Market Research & Grand View Research: Global E-scrap PCB Recycling Market Report</div>
+          <div>³ 전 세계 ITAD 기업 및 정련 파트너사 대상 B2B SaaS 구독·API 호출 과금 기준 자체 Bottom-up 산출치</div>
+        </div>
+
+        {/* Defensive Moat & IP Portfolio Card */}
+        <div className="bg-gradient-to-br from-slate-900/80 via-[#0B1220] to-slate-900/80 backdrop-blur-xl border border-cyan-500/30 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-cyan-500/10 blur-[80px] pointer-events-none" />
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            <div className="lg:col-span-8 space-y-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/25 text-cyan-400 font-mono text-[11px] sm:text-xs tracking-wider uppercase">
+                <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
+                <span>IP PORTFOLIO · DEFENSIVE MOAT</span>
+              </div>
+              
+              <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight break-keep">
+                인공지능 비전 기반 폐인쇄회로기판(PCB) 유가금속 함량 추정 및 습식 정련 공정 제어 시스템
+              </h3>
+              
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed break-keep">
+                단순 이미지 감식을 넘어 실제 습식 침출 반응(pH/ORP) 피드백 제어를 포함하는 독점적 기술 장벽을 구축합니다. 소프트웨어 모방자가 침범할 수 없는 화학 공정 메커니즘을 방어합니다.
+              </p>
+            </div>
+
+            <div className="lg:col-span-4 flex flex-col justify-center space-y-3 p-4 sm:p-5 rounded-2xl bg-slate-950/80 border border-slate-800">
+              <div className="text-xs font-mono text-cyan-300 font-semibold flex items-center gap-1.5">
+                <Award className="w-4 h-4 text-amber-400" />
+                <span>선행기술조사 완료</span>
+              </div>
+              <div className="text-xs text-slate-300 leading-relaxed font-sans break-keep">
+                특허 출원 준비 단계 (원천 공정 메커니즘 보호 및 알고리즘 방어)
+              </div>
+              <div className="text-[10px] font-mono text-slate-400 pt-2 border-t border-slate-800/80 flex items-center justify-between">
+                <span>Diligence Ready</span>
+                <span className="text-emerald-400 font-bold">100% Verified</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </section>
 
       {/* 8. FAQ ACCORDION SECTION */}
