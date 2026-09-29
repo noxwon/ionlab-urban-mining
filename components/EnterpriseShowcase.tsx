@@ -33,7 +33,9 @@ import {
   ChevronDown,
   HelpCircle,
   Lightbulb,
-  Database
+  Database,
+  ShieldAlert,
+  Flame
 } from "lucide-react";
 import { sendLeadEmail } from "@/lib/email";
 import { FAQ_DATA } from "@/data/faqData";
@@ -121,12 +123,12 @@ export default function EnterpriseShowcase() {
     note: ""
   });
 
-  // FAQ 상태 (카테고리 탭 및 아코디언 토글)
-  const [activeFaqTab, setActiveFaqTab] = useState<"all" | "part1" | "part2" | "part3">("all");
+  // FAQ 상태 (아코디언 토글)
   const [openFaqIds, setOpenFaqIds] = useState<Record<string, boolean>>({
     q1: true,
-    q4: true,
-    q6: true,
+    q2: false,
+    q3: false,
+    q4: false,
   });
 
   const toggleFaq = (id: string) => {
@@ -351,6 +353,99 @@ export default function EnterpriseShowcase() {
             </button>
           </div>
 
+        </div>
+      </section>
+
+      {/* 2.5 [MYTH BUSTER] 후진국형 노동 vs 첨단 금속학 패러다임 전환 */}
+      <section className="py-20 border-b border-slate-800/80 bg-gradient-to-b from-slate-950 via-[#070A0F] to-[#05080E] relative overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-14">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 font-mono text-[11px] sm:text-xs tracking-wider uppercase mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+              <span>PARADIGM SHIFT · URBAN METALLURGY</span>
+            </div>
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight break-keep mb-3">
+              E-Waste 정련은 3D 노동이 아닌, <span className="text-cyan-400">첨단 데이터 금속학</span>입니다
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-400 max-w-3xl mx-auto leading-relaxed break-keep">
+              벨기에 유미코아(Umicore), 스웨덴 볼리덴(Boliden)처럼—데이터와 정밀 화학이 결합된 선진국형 순환경제를 구축합니다.
+            </p>
+          </div>
+
+          {/* 2단 스플릿 비교 카드 (좌우 대칭) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            {/* Left Card: Primitive E-Waste Scrap (기존 관행) */}
+            <div className="bg-slate-900/40 backdrop-blur-xl border border-rose-900/40 rounded-3xl p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-rose-500/5 rounded-full blur-3xl pointer-events-none" />
+              <div>
+                <div className="flex items-center justify-between mb-6">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-400 font-mono text-xs font-semibold">
+                    <ShieldAlert className="w-3.5 h-3.5" />
+                    Conventional Recycling
+                  </span>
+                  <span className="text-xs font-mono text-slate-500">기존 관행 방식</span>
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-5 flex items-center gap-2">
+                  <Flame className="w-5 h-5 text-rose-500 shrink-0" />
+                  후진국형 단순 노동 소각 및 해체
+                </h3>
+                <ul className="space-y-4 text-xs sm:text-sm text-slate-400">
+                  <li className="flex items-start gap-3">
+                    <div className="w-1.5 h-1.5 rounded-full bg-rose-500 mt-2 shrink-0" />
+                    <span className="break-keep">노천 소각 및 무단 산(Acid) 방류로 인한 극심한 환경 오염</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-1.5 h-1.5 rounded-full bg-rose-500 mt-2 shrink-0" />
+                    <span className="break-keep">단순 저임금 비숙련 수작업 의존 (국내 도입 시 채산성 붕괴)</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="w-1.5 h-1.5 rounded-full bg-rose-500 mt-2 shrink-0" />
+                    <span className="break-keep">비표준화된 눈대중 깜깜이 정산과 매입처 간 잦은 분쟁</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="mt-8 pt-4 border-t border-rose-950/60 flex items-center justify-between text-[11px] font-mono text-rose-400/80">
+                <span>채산성 한계</span>
+                <span>비효율 수작업 & 환경 규제 리스크</span>
+              </div>
+            </div>
+
+            {/* Right Card: Advanced Urban Metallurgy (이온랩 방식) */}
+            <div className="bg-slate-900/60 backdrop-blur-xl border border-amber-500/40 shadow-lg shadow-amber-500/10 rounded-3xl p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+              <div>
+                <div className="flex items-center justify-between mb-6">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-xs font-semibold">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    IONLAB AI Platform
+                  </span>
+                  <span className="text-xs font-mono text-amber-400 font-semibold">첨단 도시광산 패러다임</span>
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-5 flex items-center gap-2">
+                  <Sparkles className="w-5 h-5 text-amber-400 shrink-0" />
+                  AI 비전 기반 고순도 스마트 정련
+                </h3>
+                <ul className="space-y-4 text-xs sm:text-sm text-slate-300">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 mt-0.5 shrink-0" />
+                    <span className="break-keep"><strong className="text-white">저온·상압 화학 습식 침출</strong> + AI 비전 공정 제어 메커니즘</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-4 h-4 text-amber-400 mt-0.5 shrink-0" />
+                    <span className="break-keep">천연 금광석(톤당 5g) 대비 <strong className="text-amber-300">80배 높은 광물 품위</strong> (폐기판 톤당 Au 150~400g 회수)</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-4 h-4 text-cyan-400 mt-0.5 shrink-0" />
+                    <span className="break-keep">국가 핵심 희소금속 자원안보 & <strong className="text-cyan-300">Scope 3 탄소 배출 80% 감축</strong></span>
+                  </li>
+                </ul>
+              </div>
+              <div className="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between text-[11px] font-mono text-emerald-400">
+                <span>공정 혁신</span>
+                <span>회수 소요시간 10초 · 화학 약품비 -42%</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -725,6 +820,160 @@ export default function EnterpriseShowcase() {
             </div>
           </div>
 
+          {/* Sub-Showcase: Selective Harvesting (선별적 국소 추출) */}
+          <div className="mt-12 bg-gradient-to-br from-slate-900/90 via-[#0B1320] to-slate-900/90 border border-cyan-500/30 rounded-3xl p-6 sm:p-10 relative overflow-hidden shadow-2xl">
+            <div className="absolute top-0 right-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
+            
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-8 pb-8 border-b border-slate-800">
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 font-mono text-[11px] sm:text-xs tracking-wider uppercase mb-3">
+                  <span>SELECTIVE HARVESTING · HIGH-YIELD TARGETING</span>
+                </div>
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-white tracking-tight break-keep">
+                  기판 전체를 분해하지 않습니다.<br className="hidden sm:block" />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-yellow-500">상위 5% 면적에서 귀금속의 90%</span>를 10초 만에 회수합니다.
+                </h3>
+              </div>
+
+              {/* 핵심 임팩트 KPI 배지 */}
+              <div className="flex flex-col sm:flex-row lg:flex-col gap-2.5 shrink-0">
+                <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 font-mono text-xs font-bold">
+                  <Activity className="w-4 h-4 text-cyan-400" />
+                  <span>작업 소요 시간: 15분 ➔ 10초 단축 (작업 공수 90% 절감)</span>
+                </div>
+                <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-mono text-xs font-bold">
+                  <Sparkles className="w-4 h-4 text-emerald-400" />
+                  <span>화학 약품비: 비선별 일괄 침출 대비 42% 절감</span>
+                </div>
+              </div>
+            </div>
+
+            {/* 3단 하이라이트 타깃 쇼케이스 (가로 그리드) */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+              <div className="p-5 rounded-2xl bg-slate-950/70 border border-slate-800/80 hover:border-amber-500/40 transition">
+                <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center mb-3.5">
+                  <Cpu className="w-5 h-5" />
+                </div>
+                <div className="text-xs font-mono text-amber-400 mb-1 font-semibold">TARGET 01</div>
+                <h4 className="text-base font-bold text-white mb-1.5">RAM Gold Fingers</h4>
+                <p className="text-xs text-slate-400 leading-relaxed break-keep">
+                  하드 골드 도금층 집중 핀포인트 절단 (Au 99.9%). 기판 절단기 연동으로 단 10초 만에 도금부만 정밀 분리합니다.
+                </p>
+              </div>
+
+              <div className="p-5 rounded-2xl bg-slate-950/70 border border-slate-800/80 hover:border-cyan-500/40 transition">
+                <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center mb-3.5">
+                  <Layers className="w-5 h-5" />
+                </div>
+                <div className="text-xs font-mono text-cyan-400 mb-1 font-semibold">TARGET 02</div>
+                <h4 className="text-base font-bold text-white mb-1.5">BGA AP/Controller</h4>
+                <p className="text-xs text-slate-400 leading-relaxed break-keep">
+                  금 본딩 와이어 및 고집적 다이 부품 탈거. 불필요한 기판 원목 침출을 막아 방해 금속 혼입을 사전에 차단합니다.
+                </p>
+              </div>
+
+              <div className="p-5 rounded-2xl bg-slate-950/70 border border-slate-800/80 hover:border-emerald-500/40 transition">
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mb-3.5">
+                  <FlaskConical className="w-5 h-5" />
+                </div>
+                <div className="text-xs font-mono text-emerald-400 mb-1 font-semibold">TARGET 03</div>
+                <h4 className="text-base font-bold text-white mb-1.5">MLCC Cap Array</h4>
+                <p className="text-xs text-slate-400 leading-relaxed break-keep">
+                  희소 팔라듐(Pd) 및 은(Ag) 타깃 고속 수거. 적층 세라믹 캐패시터 군집의 고품위 귀금속만 선별 침출합니다.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 5.5 [STRATEGIC MOAT] 대형 제련소 & 물리 선별기 대비 비교표 */}
+      <section className="py-24 max-w-6xl mx-auto px-4">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 font-mono text-[11px] sm:text-xs tracking-wider uppercase mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+            <span>STRATEGIC POSITIONING · MARKET MOAT</span>
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight break-keep mb-3">
+            The Digital Gatekeeper in Urban Mining
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-400 max-w-3xl mx-auto leading-relaxed break-keep">
+            수천억 규모의 대형 용광로와 파쇄 후 선별기가 해결하지 못하는 &lsquo;파쇄 전 비파괴 진단과 화학 최적화&rsquo;를 소프트웨어로 장악합니다.
+          </p>
+        </div>
+
+        {/* 3열 벤토 그리드 비교 카드 */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Col 1. TOMRA / STEINERT */}
+          <div className="bg-slate-900/40 backdrop-blur-xl border border-slate-800/80 rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
+            <div>
+              <div className="text-[11px] font-mono text-slate-500 uppercase tracking-wider mb-2">Category 01</div>
+              <h3 className="text-lg font-bold text-slate-200 mb-4 break-keep">글로벌 물리 선별기<br /><span className="text-xs text-slate-400 font-normal">(TOMRA / STEINERT)</span></h3>
+              <div className="space-y-4 text-xs text-slate-400">
+                <div className="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800">
+                  <div className="font-semibold text-slate-300 mb-1">메커니즘</div>
+                  <p className="break-keep">기판을 이미 가루로 분쇄(Shredded)한 뒤 에어젯 물리 분리</p>
+                </div>
+                <div className="p-3.5 rounded-xl bg-rose-500/5 border border-rose-500/20">
+                  <div className="font-semibold text-rose-400 mb-1">한계</div>
+                  <p className="break-keep">칩셋 부품 데이터 영구 소실, 수억~수십억 원대 플랜트 설비비(CAPEX)</p>
+                </div>
+              </div>
+            </div>
+            <div className="mt-6 pt-4 border-t border-slate-800 text-[11px] font-mono text-slate-500">
+              설비비 부담: 높음 (High Capex)
+            </div>
+          </div>
+
+          {/* Col 2. 고려아연 등 대형 제련소 */}
+          <div className="bg-slate-900/40 backdrop-blur-xl border border-slate-800/80 rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
+            <div>
+              <div className="text-[11px] font-mono text-slate-500 uppercase tracking-wider mb-2">Category 02</div>
+              <h3 className="text-lg font-bold text-slate-200 mb-4 break-keep">대규모 전통 제련소<br /><span className="text-xs text-slate-400 font-normal">(고려아연 등)</span></h3>
+              <div className="space-y-4 text-xs text-slate-400">
+                <div className="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800">
+                  <div className="font-semibold text-slate-300 mb-1">메커니즘</div>
+                  <p className="break-keep">1,200°C 이상 대형 용광로 기반 수천 톤 단위 건식 용융</p>
+                </div>
+                <div className="p-3.5 rounded-xl bg-rose-500/5 border border-rose-500/20">
+                  <div className="font-semibold text-rose-400 mb-1">한계</div>
+                  <p className="break-keep">소량 다품종 고품위 PCB 정밀 감정 불가, 샘플 파괴 분석 소요(1~2주)</p>
+                </div>
+              </div>
+            </div>
+            <div className="mt-6 pt-4 border-t border-slate-800 text-[11px] font-mono text-slate-500">
+              분석 리드타임: 1~2주 (정밀 감정 불가)
+            </div>
+          </div>
+
+          {/* Col 3. IONLAB AI (Urban Mining Intelligence) */}
+          <div className="bg-slate-900/70 backdrop-blur-xl border border-cyan-500/50 shadow-xl shadow-cyan-500/10 rounded-3xl p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-24 h-24 bg-cyan-500/15 rounded-full blur-2xl pointer-events-none" />
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-[11px] font-mono text-cyan-400 uppercase tracking-wider font-bold">Category 03 · UNIQUE MOAT</span>
+                <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 font-mono text-[10px] font-bold">
+                  HIGH YIELD
+                </span>
+              </div>
+              <h3 className="text-lg font-bold text-white mb-4 break-keep">IONLAB AI<br /><span className="text-xs text-cyan-300 font-normal">(Urban Mining Intelligence)</span></h3>
+              <div className="space-y-4 text-xs text-slate-300">
+                <div className="p-3.5 rounded-xl bg-cyan-500/10 border border-cyan-500/25">
+                  <div className="font-semibold text-cyan-300 mb-1">메커니즘</div>
+                  <p className="break-keep"><strong className="text-white">파쇄 전 원형 상태</strong>에서 0.1초 비파괴 가치 산출 + 화학 레시피 도출</p>
+                </div>
+                <div className="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/25">
+                  <div className="font-semibold text-emerald-300 mb-1">강점</div>
+                  <p className="break-keep"><strong className="text-white">Asset-Light 클라우드 SaaS</strong>, 약품비 42% 절감, 대형 제련소에 사전 검증된 고품위 원료를 공급하는 상위 데이터 파트너</p>
+                </div>
+              </div>
+            </div>
+            <div className="mt-6 pt-4 border-t border-slate-800 text-[11px] font-mono text-cyan-300 flex items-center justify-between">
+              <span>스케일업 모델</span>
+              <span>Asset-Light SaaS & Data Gatekeeper</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -957,54 +1206,32 @@ export default function EnterpriseShowcase() {
 
       </section>
 
-      {/* 8. FAQ ACCORDION SECTION */}
+      {/* 8. [ENTERPRISE & TECH FAQ] 송곳 질문을 선제 차단하는 다크 아코디언 */}
       <section id="faq" className="py-24 border-t border-slate-800 bg-[#070A0F] relative">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
           
           {/* Section Header */}
           <div className="text-center mb-14">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono font-bold mb-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 font-mono text-[11px] sm:text-xs tracking-wider uppercase mb-4">
               <HelpCircle className="w-3.5 h-3.5" />
               <span>DILIGENCE & DEEPTECH FAQ</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight mb-4 break-keep">
-              투자자 및 파트너를 위한 <span className="text-cyan-400">핵심 Q&A</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight mb-4 break-keep">
+              자주 묻는 핵심 질문 (FAQ)
             </h2>
-            <p className="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed break-keep">
-              고령화 사회 일자리와 산업적 가치, 비전 AI의 한계 돌파 전략, 그리고 VC 심사역의 날카로운 질문에 대한 이온랩의 검증된 해답입니다.
+            <p className="text-slate-400 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed break-keep">
+              후진국 3D 노동 편견, 고임금 채산성, 비전 AI 한계 극복, 그리고 대형 제련소와의 상생 모델에 대한 이온랩의 기술적·재무적 해답입니다.
             </p>
-
-            {/* Category Filter Tabs */}
-            <div className="flex items-center justify-start sm:justify-center gap-2 mt-8 overflow-x-auto no-scrollbar pb-2 px-1">
-              {[
-                { key: "all", label: "전체 질문 (9)" },
-                { key: "part1", label: "Part 1. 산업 가치 & 일자리 (3)" },
-                { key: "part2", label: "Part 2. 기술 실현성 & 한계돌파 (2)" },
-                { key: "part3", label: "Part 3. VC & IR 질의응답 (4)" },
-              ].map((tab) => (
-                <button
-                  key={tab.key}
-                  onClick={() => setActiveFaqTab(tab.key as typeof activeFaqTab)}
-                  className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer font-mono shrink-0 whitespace-nowrap ${
-                    activeFaqTab === tab.key
-                      ? "bg-cyan-500 text-slate-950 shadow-lg shadow-cyan-500/25"
-                      : "bg-slate-900/90 text-slate-400 hover:text-slate-200 border border-slate-800 hover:border-slate-700"
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
           </div>
 
           {/* Accordion List */}
           <div className="space-y-4">
-            {FAQ_DATA.filter((item) => activeFaqTab === "all" || item.partKey === activeFaqTab).map((faq) => {
+            {FAQ_DATA.map((faq) => {
               const isOpen = !!openFaqIds[faq.id];
               return (
                 <div
                   key={faq.id}
-                  className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
+                  className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
                     isOpen
                       ? "bg-[#0B0F17] border-cyan-500/40 shadow-xl shadow-cyan-950/20"
                       : "bg-[#0B0F17]/70 border-slate-800/80 hover:border-slate-700"
@@ -1014,15 +1241,9 @@ export default function EnterpriseShowcase() {
                     onClick={() => toggleFaq(faq.id)}
                     className="w-full px-5 py-5 sm:px-6 sm:py-5.5 flex items-start justify-between gap-4 text-left transition cursor-pointer"
                   >
-                    <div className="space-y-1.5 pr-2">
+                    <div className="space-y-2 pr-2">
                       <div className="flex items-center gap-2">
-                        <span className={`text-[11px] font-mono font-bold px-2 py-0.5 rounded ${
-                          faq.partKey === "part1"
-                            ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/30"
-                            : faq.partKey === "part2"
-                            ? "bg-cyan-500/10 text-cyan-400 border border-cyan-500/30"
-                            : "bg-amber-500/10 text-amber-400 border border-amber-500/30"
-                        }`}>
+                        <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/30">
                           {faq.partBadge}
                         </span>
                       </div>
