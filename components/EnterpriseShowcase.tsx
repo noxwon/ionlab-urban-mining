@@ -819,9 +819,10 @@ export default function EnterpriseShowcase() {
               </span>
             </div>
           </div>
+        </div>
 
-          {/* Sub-Showcase: Selective Harvesting (선별적 국소 추출) */}
-          <div className="mt-12 bg-gradient-to-br from-slate-900/90 via-[#0B1320] to-slate-900/90 border border-cyan-500/30 rounded-3xl p-6 sm:p-10 relative overflow-hidden shadow-2xl">
+        {/* Sub-Showcase: Selective Harvesting (선별적 국소 추출) */}
+        <div className="mt-12 bg-gradient-to-br from-slate-900/90 via-[#0B1320] to-slate-900/90 border border-cyan-500/30 rounded-3xl p-6 sm:p-10 relative overflow-hidden shadow-2xl">
             <div className="absolute top-0 right-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
             
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-8 pb-8 border-b border-slate-800">
@@ -884,9 +885,7 @@ export default function EnterpriseShowcase() {
               </div>
             </div>
           </div>
-
-        </div>
-      </section>
+        </section>
 
       {/* 5.5 [STRATEGIC MOAT] 대형 제련소 & 물리 선별기 대비 비교표 */}
       <section className="py-24 max-w-6xl mx-auto px-4">
