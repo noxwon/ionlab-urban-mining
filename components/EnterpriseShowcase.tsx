@@ -129,6 +129,7 @@ export default function EnterpriseShowcase() {
     q2: false,
     q3: false,
     q4: false,
+    q5: false,
   });
 
   const toggleFaq = (id: string) => {
