@@ -45,13 +45,13 @@ const PRESETS = [
   {
     id: "server-ram",
     name: "Enterprise Server DDR3 ECC RAM",
-    grade: "Tier-1 High Yield",
+    grade: "Tier-1 High Yield (시뮬레이션 예시)",
     weightDefault: 1, // kg
     goldRate: 1.45, // g/kg
     silverRate: 4.80,
     palladiumRate: 0.12,
     baseMetals: { copper: 62, nickel: 14, tin: 18, iron: 6 },
-    chemicalSavings: "44.2%",
+    chemicalSavings: "42%",
     img: "https://images.unsplash.com/photo-1562976540-1502c2145186?w=800&q=80",
     tags: [
       { label: "BGA DRAM Array (Au Wire)", top: "32%", left: "18%", width: "26%", height: "32%", confidence: "99.4%", value: "Au ~0.14g" },
@@ -63,13 +63,13 @@ const PRESETS = [
   {
     id: "smartphone-pcb",
     name: "Smartphone Mainboard Substrate",
-    grade: "Ultra-Dense Complex",
+    grade: "Ultra-Dense Complex (시뮬레이션 예시)",
     weightDefault: 1,
     goldRate: 3.20,
     silverRate: 8.50,
     palladiumRate: 0.35,
     baseMetals: { copper: 54, nickel: 22, tin: 16, iron: 8 },
-    chemicalSavings: "41.8%",
+    chemicalSavings: "42%",
     img: "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=800&q=80",
     tags: [
       { label: "AP/PoP Stack IC (Au Wire/Ball)", top: "24%", left: "28%", width: "36%", height: "36%", confidence: "99.1%", value: "Au ~0.38g" },
@@ -80,13 +80,13 @@ const PRESETS = [
   {
     id: "gpu-board",
     name: "Data Center GPU Accelerator Substrate",
-    grade: "Heavy Metallurgical",
+    grade: "Heavy Metallurgical (시뮬레이션 예시)",
     weightDefault: 1,
     goldRate: 1.85,
     silverRate: 5.90,
     palladiumRate: 0.22,
     baseMetals: { copper: 68, nickel: 12, tin: 14, iron: 6 },
-    chemicalSavings: "46.5%",
+    chemicalSavings: "42%",
     img: "https://images.unsplash.com/photo-1591488320449-011701bb6704?w=800&q=80",
     tags: [
       { label: "CoWoS GPU Core Substrate", top: "28%", left: "32%", width: "38%", height: "38%", confidence: "99.6%", value: "Multi-Die Au" },
@@ -313,7 +313,7 @@ export default function EnterpriseShowcase() {
           </h1>
 
           <p className="text-sm sm:text-lg text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed break-keep font-normal">
-            파괴 검사(XRF) 없이 사진 한 장으로 칩셋 0.1초 분할 식별 ➔ KRX 실시간 시세 연동 가치 산출 ➔ 최적 습식 정련 레시피 도출까지 원스톱 인텔리전스를 제공합니다.
+            파괴 검사(XRF) 없이 사진 한 장으로 칩셋 0.28초 에지 객체 인식 ➔ KRX 실시간 시세 연동 가치 산출 ➔ 최적 습식 정련 레시피 도출까지 원스톱 인텔리전스를 제공합니다.
           </p>
 
           {/* 3대 핵심 지표 배지 */}
@@ -325,14 +325,14 @@ export default function EnterpriseShowcase() {
             </div>
             
             <div className="bg-[#0B0F17]/90 border border-slate-800/80 p-5 rounded-2xl shadow-xl backdrop-blur-md text-left">
-              <div className="text-[11px] font-mono text-amber-400 font-semibold mb-1">[Inference Speed]</div>
+              <div className="text-[11px] font-mono text-amber-400 font-semibold mb-1">[Edge Vision Latency]</div>
               <div className="text-2xl sm:text-3xl font-black text-white font-mono">0.28초 감식</div>
               <p className="text-xs text-slate-400 mt-1.5 break-keep">단일 프레임 내 38개 이상의 마이크로 칩셋 동시 바운딩 박스 검출</p>
             </div>
 
             <div className="bg-[#0B0F17]/90 border border-slate-800/80 p-5 rounded-2xl shadow-xl backdrop-blur-md text-left">
               <div className="text-[11px] font-mono text-emerald-400 font-semibold mb-1">[Chemical Cost]</div>
-              <div className="text-2xl sm:text-3xl font-black text-white font-mono">42% 최적화</div>
+              <div className="text-2xl sm:text-3xl font-black text-white font-mono">-42% 절감</div>
               <p className="text-xs text-slate-400 mt-1.5 break-keep">간섭 원소(Cu, Fe, Ni) 비율 사전 감식으로 왕수·질산 남용 방지</p>
             </div>
           </div>
@@ -440,8 +440,35 @@ export default function EnterpriseShowcase() {
                     <span className="break-keep">국가 핵심 희소금속 자원안보 & <strong className="text-cyan-300">Scope 3 탄소 배출 80% 감축</strong></span>
                   </li>
                 </ul>
+
+                {/* 1kg 실질 순익 산출 근거 미니 표 */}
+                <div className="mt-5 p-3.5 rounded-xl bg-slate-950/80 border border-slate-800 text-[11px] font-mono space-y-1.5">
+                  <div className="flex justify-between items-center text-amber-400 font-bold border-b border-slate-800/80 pb-1">
+                    <span>폐서버 RAM 1kg 실질 순익 산출표</span>
+                    <span>순이익 ₩ 32,800 (11%)</span>
+                  </div>
+                  <div className="flex justify-between text-slate-400 pt-0.5">
+                    <span>총 내재 금속가치 (Au ~1.45g 등):</span>
+                    <span className="text-slate-200">약 ₩ 298,000</span>
+                  </div>
+                  <div className="flex justify-between text-slate-400">
+                    <span>기판 매입 원가:</span>
+                    <span className="text-rose-400">- ₩ 180,000</span>
+                  </div>
+                  <div className="flex justify-between text-slate-400">
+                    <span>화학 약품·폐수 처리비 (-42% 최적화):</span>
+                    <span className="text-rose-400">- ₩ 45,000</span>
+                  </div>
+                  <div className="flex justify-between text-slate-400">
+                    <span>10초 국소 탈거 공임 & 위탁정련·운영비:</span>
+                    <span className="text-rose-400">- ₩ 40,200</span>
+                  </div>
+                  <div className="text-[10px] text-slate-500 pt-1 border-t border-slate-800/60 leading-tight">
+                    *기존 고물상 매입가 ₩3,000/kg은 비선별 파치 일괄 덤핑 기준이며, 당사는 선별 추출을 통해 순익 10배+ 개선
+                  </div>
+                </div>
               </div>
-              <div className="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between text-[11px] font-mono text-emerald-400">
+              <div className="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-[11px] font-mono text-emerald-400">
                 <span>공정 혁신</span>
                 <span>회수 소요시간 10초 · 화학 약품비 -42%</span>
               </div>
@@ -961,7 +988,7 @@ export default function EnterpriseShowcase() {
               <div className="space-y-4 text-xs text-slate-300">
                 <div className="p-3.5 rounded-xl bg-cyan-500/10 border border-cyan-500/25">
                   <div className="font-semibold text-cyan-300 mb-1">메커니즘</div>
-                  <p className="break-keep"><strong className="text-white">파쇄 전 원형 상태</strong>에서 0.1초 비파괴 가치 산출 + 화학 레시피 도출</p>
+                  <p className="break-keep"><strong className="text-white">파쇄 전 원형 상태</strong>에서 0.28초 에지 비전 객체 인식 + 화학 레시피 도출</p>
                 </div>
                 <div className="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/25">
                   <div className="font-semibold text-emerald-300 mb-1">강점</div>
@@ -1029,7 +1056,7 @@ export default function EnterpriseShowcase() {
                 <span className="text-xs font-mono text-emerald-400 uppercase font-bold block mb-2">Pillar 03</span>
                 <h3 className="text-2xl font-black text-white mb-3">Certified Valuation Data</h3>
                 <p className="text-xs sm:text-sm text-slate-400 leading-relaxed mb-6 break-keep">
-                  대기업 및 데이터센터의 불용 전산 자산 폐기 시 회계 감사 증빙 및 ESG 스코프 3 감축 증명을 위한 공인 전자 감정서 발급 수수료.
+                  대기업 및 데이터센터의 불용 전산 자산 폐기 시 회계 자산 실사 및 ESG Scope 3 감축 산출을 위한 자체 AI 비전 감정 리포트 (N=30 실증 후 공인 시험기관 성적서 연계).
                 </p>
               </div>
               <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 font-mono text-xs text-slate-300">
@@ -1114,7 +1141,7 @@ export default function EnterpriseShowcase() {
               </div>
 
               <p className="text-xs sm:text-sm text-slate-400 leading-relaxed break-keep">
-                귀금속 가치의 80%가 집중된 글로벌 고품위 폐PCB 및 IT 스크랩 정련 시장
+                E-Waste 중량 상위 10%에 전체 유가금속 가치의 약 80%가 집중된 고품위 폐기판(서버 RAM, AP, 통신보드) 정련 시장
               </p>
             </div>
 
@@ -1132,26 +1159,26 @@ export default function EnterpriseShowcase() {
               {/* Header Badge */}
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 font-mono text-[11px] sm:text-xs tracking-wider uppercase mb-5">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                <span>SOM · 즉시 수익 시장³</span>
+                <span>SOM · 즉시 유효 시장³</span>
               </div>
 
               <div className="mb-4">
                 <div className="text-2xl sm:text-3xl font-black text-emerald-400 tracking-tight whitespace-nowrap">
-                  ₩ 3,600억 원
+                  ₩ 360억 원
                 </div>
                 <div className="text-xs font-mono text-emerald-300/90 mt-1 font-semibold">
-                  Bottom-up Model (SaaS & API)
+                  1,200개 1차 거점 유효 시장
                 </div>
               </div>
 
               <p className="text-xs sm:text-sm text-slate-400 leading-relaxed break-keep">
-                글로벌 12,000개 ITAD 기업 및 제련소 대상 AI 감정 SaaS 라이선스 & 제어 API
+                국내외 1차 거점 1,200개 ITAD·정련사 대상 AI 감정 SaaS & 거래 매칭 시장 (1차년도 10% 침투 시 연 매출 36억 원 달성)
               </p>
             </div>
 
             <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
-              <span>12,000+ Enterprise Targets</span>
-              <span className="text-emerald-400 font-bold">Direct Monetization</span>
+              <span>1,200 Enterprise Targets</span>
+              <span className="text-emerald-400 font-bold">10% Target: ₩ 36억</span>
             </div>
           </div>
 
@@ -1165,7 +1192,7 @@ export default function EnterpriseShowcase() {
           </div>
           <div>¹ UN 글로벌 전자폐기물 모니터 (UNITAR / ITU The Global E-waste Monitor)</div>
           <div>² Allied Market Research & Grand View Research: Global E-scrap PCB Recycling Market Report</div>
-          <div>³ 전 세계 ITAD 기업 및 정련 파트너사 대상 B2B SaaS 구독·API 호출 과금 기준 자체 Bottom-up 산출치</div>
+          <div>³ 국내외 1차 거점 1,200개사 대상 월 기본구독(150만 원) + 대량 배치 API + ITAD 거래 연계 3% 매칭 수수료(사당 연 3,000만 원 환산) 기준 전체 시장 360억 원 / 1차년도 10%(120개사) 침투 시 목표 매출 36억 원</div>
         </div>
 
         {/* Defensive Moat & IP Portfolio Card */}
@@ -1180,25 +1207,26 @@ export default function EnterpriseShowcase() {
               </div>
               
               <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight break-keep">
-                인공지능 비전 기반 폐인쇄회로기판(PCB) 유가금속 함량 추정 및 습식 정련 공정 제어 시스템
+                비전 감정 및 본딩와이어 추론 시스템 <span className="text-gold-400 text-base sm:text-lg font-mono font-normal block sm:inline">(특허출원 제10-2026-0182129호)</span>
               </h3>
               
               <p className="text-xs sm:text-sm text-slate-400 leading-relaxed break-keep">
-                단순 이미지 감식을 넘어 실제 습식 침출 반응(pH/ORP) 피드백 제어를 포함하는 독점적 기술 장벽을 구축합니다. 소프트웨어 모방자가 침범할 수 없는 화학 공정 메커니즘을 방어합니다.
+                8% 안전 패딩 마진 기반 멀티 칩 세그멘테이션과 JEDEC 규격 매핑 및 부품 중심 좌표 추출에 관한 독자 특허를 확보했습니다. 화학 정련 침출/환원 레시피는 코카콜라 방식의 영업비밀(Trade Secret)로 보호하며, pH/ORP 센서 피드백 제어는 향후 TIPS 연계 R&D 과제로 체계화합니다.
               </p>
             </div>
 
             <div className="lg:col-span-4 flex flex-col justify-center space-y-3 p-4 sm:p-5 rounded-2xl bg-slate-950/80 border border-slate-800">
               <div className="text-xs font-mono text-cyan-300 font-semibold flex items-center gap-1.5">
                 <Award className="w-4 h-4 text-amber-400" />
-                <span>선행기술조사 완료</span>
+                <span>특허출원 완료 (2026.09)</span>
               </div>
-              <div className="text-xs text-slate-300 leading-relaxed font-sans break-keep">
-                특허 출원 준비 단계 (원천 공정 메커니즘 보호 및 알고리즘 방어)
+              <div className="text-xs text-slate-300 leading-relaxed font-mono break-keep">
+                제10-2026-0182129호<br />
+                <span className="text-slate-400 text-[11px] font-sans">비전 감정 및 본딩와이어 추론 시스템</span>
               </div>
               <div className="text-[10px] font-mono text-slate-400 pt-2 border-t border-slate-800/80 flex items-center justify-between">
                 <span>Diligence Ready</span>
-                <span className="text-emerald-400 font-bold">100% Verified</span>
+                <span className="text-emerald-400 font-bold">PoC 실증 완료</span>
               </div>
             </div>
           </div>
@@ -1307,7 +1335,7 @@ export default function EnterpriseShowcase() {
           </h2>
 
           <p className="text-slate-300 mb-10 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed break-keep font-normal">
-            TIPS R&D 과제 연계 및 Pre-A / Series A 라운드 오픈. 비파괴 AI 비전과 화학 정련 최적화로 100조 원 E-Waste 시장의 표준을 선점합니다.
+            2026 TIPS R&D 과제 연계 Seed 라운드 오픈 (Seed 2.0~2.5억 원 / SAFE Cap 25~30억 또는 RCPS). 비파괴 AI 비전과 화학 정련 최적화로 120조 원 E-Waste 시장의 표준을 선점합니다.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -1337,10 +1365,7 @@ export default function EnterpriseShowcase() {
               <span>사업자등록번호: 272-87-04029</span>
             </div>
             <div className="text-[11px] sm:text-xs text-slate-400">
-              연구개발 본사: 경기도 평택시 고덕면 고덕여염로 (삼성전자 평택캠퍼스 인접)
-            </div>
-            <div className="text-[11px] sm:text-xs text-slate-500">
-              공동 기술 파트너십: AETHER MINING 도시광산 네트워크
+              연구개발 본사: 경기도 평택시 고덕면 도시지원1길 116, 208호 (G1지식산업센터)
             </div>
           </div>
         </div>
@@ -1471,6 +1496,9 @@ export default function EnterpriseShowcase() {
                         </>
                       )}
                     </button>
+                    <div className="text-[10px] text-slate-500 text-center font-mono mt-2.5">
+                      🔒 입력 정보는 암호화 전송되며, 심사 및 제휴 검토 목적으로만 안전하게 처리됩니다.
+                    </div>
                   </div>
                 </form>
               </div>
